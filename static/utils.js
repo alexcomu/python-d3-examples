@@ -26,7 +26,7 @@ var path = svg.append("g")
 tick();
 
 function tick() {
-  d3.json("/data", function(json, error) {
+  d3.json("/utils_data", function(json, error) {
       data.push(json.usage);
       path
           .attr("d", line)

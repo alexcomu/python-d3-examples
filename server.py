@@ -7,8 +7,8 @@ app = Flask(__name__)
 def hello():
     return render_template('index.html')
 
-@app.route("/data")
-def data():
+@app.route("/utils_data")
+def utils_data():
     return jsonify(usage=psutil.cpu_percent(interval=None))
 
 @app.route("/utils")
