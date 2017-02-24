@@ -31,6 +31,14 @@ function tick() {
       path
           .attr("d", line)
           .attr("transform", null)
+          .attr('stroke', function(d){
+            if(d[d.length-1] > 70){
+                return "red";
+            }else if(d[d.length-1] > 45){
+                return "orange";
+            }
+            return "black";
+          })
         .transition()
           .duration(500)
           .ease("linear")
