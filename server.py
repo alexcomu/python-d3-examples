@@ -15,6 +15,21 @@ def utils_data():
 def utils():
     return render_template("utils.html")
 
+@app.route("/force")
+def force():
+    return render_template("force.html")
+
+@app.route("/force_data")
+def force_data():
+    import random
+    data_nodes = [{"amount": i+random.random()*10} for i in range(20)]
+    data_links = []
+    for i in range(100):
+        s = int(random.random()*20)
+        t = int(random.random()*20)
+        if s!=t:
+            data_links.append({"target": t, "source": s})
+    return jsonify(data_nodes=data_nodes,data_links=data_links)
 
 if __name__ == "__main__":
     app.run()
